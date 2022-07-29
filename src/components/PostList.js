@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 
-export default function PostList({ userId }) {
+export default function PostList(props) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     fetchPosts();
   }, []);
   const fetchPosts = () => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    //console.log(props.userId);
+    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
       .then((res) => res.json())
       .then((data) => setPosts(data))
       .catch((er) => console.log(er));

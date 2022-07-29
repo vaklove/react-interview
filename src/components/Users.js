@@ -3,7 +3,7 @@ import PostList from './PostList';
 
 function Users() {
   const [users, setUsers] = useState([]);
-  const [usreId, setUserId] = useState();
+  const [userId, setUserId] = useState();
 
   useEffect(() => {
     fetchUsers();
@@ -17,8 +17,8 @@ function Users() {
   };
 
   const onUserChange = (evt) => {
-    console.log(evt.target.value);
     setUserId(evt.target.value);
+    console.log('onchange', evt.target.value);
   };
   return (
     <div>
